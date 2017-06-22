@@ -1,0 +1,59 @@
+extends layout
+
+block content
+    .row
+        .col-md-4
+            h1= title
+            p We host many events throughout the year,
+            p including but not limited to the following:
+            ul
+                li.activeLink
+                    a#grdnFengShui(href='javascript:getEventContent("grdnFengShui");') Garden Feng Shui
+                li
+                    a#miniMedSchool(href='javascript:getEventContent("miniMedSchool");') Mini Med School
+                li
+                    a#medTerm(href='javascript:getEventContent("medTerm");') Introduction to Chinese Medical Terminology
+                li
+                    a#massTher(href='javascript:getEventContent("massTher");') The Principles of Massage Therapy *
+                li
+                    a#faceLift(href='javascript:getEventContent("faceLift");') Natural Oriental Facelift & Skin Rejuvenation
+                li
+                    a#medCareer(href='javascript:getEventContent("medCareer");') Medicine as a Career
+                li
+                    a#herbalTher(href='javascript:getEventContent("herbalTher");') Introduction to Herbal Therapy
+                li
+                    a#taiChiQiGong(href='javascript:getEventContent("taiChiQiGong");') Introduction to Tai Chi & Qi Gong
+                li
+                    a#moonFestival(href='javascript:getEventContent("moonFestival");') Mid-Autumn Moon Festival
+                li
+                    a#perspectives(href='javascript:getEventContent("perspectives");') Chinese Perspectives in Holistic Health *
+                li
+                    a#womenHealth(href='javascript:getEventContent("womenHealth");') Holistic Approaches to Women’s Health *
+                li
+                    a#understanding(href='javascript:getEventContent("understanding");') Your Guide to Understanding Acupuncture *
+        .col-md-8
+            #eventContent
+                include templates/events/grdnFengShui
+
+    script.
+        function getEventContent(eventContent) {
+            $('li').removeClass('activeLink');
+            $('#' + eventContent).parent().addClass('activeLink');
+
+            $.ajax({
+                type: 'get',
+                url: 'http://localhost:4000/events/REST/getHTML',
+                dataType: 'json',
+                data: {
+                    'file': eventContent,
+                    'path': ''
+                },
+                success: function (data, status) {
+                    var html = data['html'];
+                    $("#eventContent").html(html);
+                },
+                complete: function (data, status) {
+                    //alert(status + ' ' + data['html']);
+                }
+            });
+        }

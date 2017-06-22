@@ -1,0 +1,42 @@
+.contanier-fluid
+    .row
+        .col-md-4
+            h1 Opportunities
+            p There are many opportunities for personal expansion offered at the Center for Integrated Medicine.
+            p Opportunities including the following:
+
+            ul
+                li.activeLink
+                    a#healthCert(href='javascript:getOpportunityContent("healthCert");') Holistic Health Certificate
+                li
+                    a#internships(href='javascript:getOpportunityContent("internships");') Internships
+                li
+                    a#medAppren(href='javascript:getOpportunityContent("medAppren");') Medical Apprenticeship
+                li
+                    a#employment(href='javascript:getOpportunityContent("employment");') Employment
+        .col-md-8
+            #opportunityContent
+                include opportunities/healthCert
+
+script.
+    function getOpportunityContent(opportunityContent) {
+        $('li').removeClass('activeLink');
+        $('#' + opportunityContent).parent().addClass('activeLink');
+
+        $.ajax({
+            type: 'get',
+            url: 'http://localhost:4000/learnMore/REST/getHTML',
+            dataType: 'json',
+            data: {
+                'file': opportunityContent,
+                'path': 'opportunities/'
+            },
+            success: function (data, status) {
+                var html = data['html'];
+                $("#opportunityContent").html(html);
+            },
+            complete: function (data, status) {
+                //alert(status + ' ' + data['html']);
+            }
+        });
+    }

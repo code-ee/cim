@@ -1,0 +1,69 @@
+//nav#mainScrollspy.navbar.navbar-inverse(data-spy="affix", data-offset-top="315")
+nav.navbar.navbar-inverse
+    .container-fluid
+        .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand(href='/') Center for Integrated Medicine
+        #myNavbar.collapse.navbar-collapse
+            ul.nav.navbar-nav
+                li
+                    a(href='/') Home
+                li
+                    a(href='/drKwong') Dr. Kwong
+                li
+                    a(href='/events') Events
+                li.dropdown
+                    a#serv.dropdown-toggle(href='/services', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                        | Services
+                        span.caret
+                    ul.dropdown-menu
+                        li
+                            a(href='/services#acupressure') Acupressure
+                        li
+                            a(href='/services#acupuncture') Acupuncture
+                        li
+                            a(href='/services#cupping') Cupping
+                        li
+                            a(href='/services#fengShui') Feng Shui
+                        li
+                            a(href='/services') Much More...
+                li.dropdown
+                    a.dropdown-toggle(href='/learnMore', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                        | Learn More
+                        span.caret
+                    ul.dropdown-menu
+                        li
+                            a(href='javascript:learnMore("aboutUs");') About Us
+                        li
+                            a(href='javascript:learnMore("patientInfo");') Patient Info
+                        li
+                            a(href='javascript:learnMore("asianCultureSociety");') Asian Cultural Society
+                        li
+                            a(href='javascript:learnMore("staffInterns");') Staff & Interns
+                        li
+                            a(href='javascript:learnMore("FAQ");') FAQs
+                        li.divider(role='separator')
+                        li
+                            a(href='javascript:learnMore("opportunities");') Opportunities
+
+            ul.nav.navbar-nav.navbar-right
+                form.navbar-form.searchBar
+                    .input-group
+                        input.form-control(type='text', placeholder='Search')
+                        .input-group-btn
+                            button.btn.btn-default(type='submit')
+                                i.glyphicon.glyphicon-search
+
+script.
+    function learnMore(content) {
+        var url = 'http://localhost:4000/learnMore'
+        if (window.location.href.split('?')[0] === url) {
+            showContent(content);
+        } else {
+            url += '?content=' + content
+            window.location.href = url;
+        }
+    }

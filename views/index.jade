@@ -1,0 +1,84 @@
+extends layout
+
+block content
+    .container-fluid
+        .row
+            .col-md-6
+                h2 Welcome to the #{title}
+                h3 Are You Ready To Start Feeling Better Today?
+                b Traditional Chinese Medicine, It Works!
+                hr
+                p.
+                    Welcome, we are general medical practitioners of Traditional Chinese Medicine or TCM. TCM evolved from the
+                    ancient Chinese and is both an art and a science. It is important to understand that TCM is called “Traditional”
+                    because it is a complete medical system just like allopathic conventional medicine. Chinese medicine is called
+                    Traditional because it follows accepted medical methods and has proven explanations for it’s effectiveness.
+                    Therefore TCM is a complete medical system based on natural and holistic principles for both diagnostic and
+                    treatment purposes.
+                p.
+                    At its core, it is based on a medical philosophy that views the body as an integrated whole of mind body and
+                    spirit. We understand that we must practice side by side our conventional Western medical colleagues to best
+                    serve the healthcare needs of our patients. The goal here is to successfully integrate our TCM with the
+                    customary conventional Western medicine that the majority of the people receive. To that end, our approach is to
+                    provide medical care that is either alternative, complementary or as an adjunct to conventional Western
+                    medicine. We believe that providing this kind of healthcare choice to our patients is the best of both worlds.
+                p.
+                    We will find innovative solutions to your health-care needs, we care and we listen. In addition to being in good
+                    standing with the medical community, our success record with patients has been exemplary over the years.
+                p.
+                    As primary healthcare providers you do not need a referral from your MD to be a patient of the Center and most
+                    insurances are accepted.
+                p.
+                    Our Visalia, CA (Tulare County) clinic features one of a kind as well as the largest natural medicinal/Chinese
+                    herbal medicine pharmacies in the area, We are currently located at 725. W. Main St. (corner of Stevenson). You
+                    may call our receptionist, Christin for an appointment at 559-625-4246.
+                p.
+                    Thank you so much for visiting our website. There is so much more to read and see so stick around for a while
+                    and learn more about who we are and the world of TCM.
+                p.
+                    Sincerely,
+                p.
+                    Dr. Kwong.
+                p.
+                    Clinical Director
+            .col-md-6
+                .row
+                    .col-md-6
+                        h3 Treatable Conditions
+                        include templates/index/treatableSlideshow
+                    .col-md-6
+                        h3 Visalia Clinic
+                        img(src='images/clinic_sm.jpg')
+                        p.
+                            816 W. Oak Avenue
+                            Visalia, CA 93277
+                        p.
+                            <b>Phone:</b></br>
+                            (559) 625-4246
+                        p.
+                            <b>Email:</b> integratedmedicine@sbcglobal.net
+                .row
+                    .col-md-6
+                        h3 Jade Garden Pharmacy
+                        img(src='images/jadeGardenPharm-sm.jpg')
+                        i <br>A natural way to Health and Well-Being
+                        ul
+                            li Teas
+                            li Medicated Diets
+                            li Herbal Formulas
+                    .col-md-6
+                        h3 Mini Medical School
+                        img(src='images/miniMedSchool.jpg')
+                        i <br>Check it out in our events section!
+
+    script.
+        var slides = document.querySelectorAll('#slides .tcSlide');
+        var currentSlide = 0;
+        var slideInterval = setInterval(nextSlide, 2000);
+
+        function nextSlide() {
+            slides[currentSlide].className = 'tcSlide';
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].className = 'tcSlide showing';
+        }
+

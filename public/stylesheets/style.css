@@ -1,0 +1,101 @@
+.searchBar {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
+    width: auto;
+    max-height: 260px;
+}
+
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    overflow-y: scroll;
+}
+
+/*#mainScrollspy.affix {*/
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*width: 100%;*/
+    /*z-index:10;*/
+/*}*/
+
+/*#sideScrollspy.affix-top {*/
+    /*position: static;*/
+/*}*/
+
+/*#sideScrollspy.affix {*/
+    /*position: fixed;*/
+    /*top: 80px;*/
+/*}*/
+
+.affix {
+    position: fixed;
+    top: 80px;
+}
+/*dropdown on mouseover*/
+/*.sidebar-nav {*/
+    /*padding: 9px 0;*/
+/*}*/
+
+/*.dropdown-menu .sub-menu {*/
+    /*left: 100%;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*visibility: hidden;*/
+    /*margin-top: -1px;*/
+/*}*/
+
+/*.dropdown-menu li:hover .sub-menu {*/
+    /*visibility: visible;*/
+/*}*/
+
+/*.dropdown:hover .dropdown-menu {*/
+    /*display: block;*/
+/*}*/
+
+/*.nav-tabs .dropdown-menu, .nav-pills .dropdown-menu, .navbar .dropdown-menu {*/
+    /*margin-top: 0;*/
+/*}*/
+
+/*slideshow*/
+#slides {
+    position: relative;
+    height: 300px;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+.tcSlide {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+.showing {
+    opacity: 1;
+    z-index: 2;
+}
+
+.activeLink {
+    border-radius:5px;
+    background-color: lightblue;
+}
+
+.faqLink {
+    font-size: 150%;
+}

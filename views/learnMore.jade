@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    include templates/subNavBars/navLearnMore
+
+    #learnMoreContent
+        case content
+            when 'aboutUs'
+                include templates/learnMore/aboutUs
+            when 'patientInfo'
+                include templates/learnMore/patientInfo
+            when 'referenceLibrary'
+                include templates/learnMore/asianCultureSociety
+            when 'staffInterns'
+                include templates/learnMore/staffInterns
+            when 'FAQ'
+                include templates/learnMore/FAQ
+            when 'opportunities'
+                include templates/learnMore/opportunities
